@@ -48,5 +48,21 @@
   "export_col_explanation": "Explanation",
   "export_col_suggested_action": "Suggested action",
   "export_col_decision": "Decision",
-  "export_col_final_action": "Final action"
+  "export_col_final_action": "Final action",
+
+  "message_greeting_formal": "Hi {client}, we hope you're doing well. We noticed we haven't seen you in a while and would love to have you back soon. Looking forward to it!",
+  "message_greeting_informal": "Hey {client}! How have you been? We haven't seen you in a while, we'd love to see you again soon!",
+  "message_reminder_formal": "Hi {client}, we hope you're doing well. We noticed you usually visit every {cycle} days and it's now been {days_since} — just wanted to remind you we're available whenever you'd like to book your next visit.",
+  "message_reminder_informal": "Hey {client}! We noticed it's been {days_since} days since your last visit (you usually come every {cycle} days or so) — we'd love to see you soon!",
+  "message_discount_formal": "Hi {client}, we hope you're doing well. We noticed it's been longer than usual since your last visit ({days_since} days). We'd love to have you back, so we're offering you [discount/perk details] if you book soon.",
+  "message_discount_informal": "Hey {client}! We already miss you around here. It's been {days_since} days since your last visit, so we wanted to offer you [discount/perk details] if you're up for coming back soon.",
+  "message_outreach_formal": "Hi {client}, we hope you're doing well. We noticed it's been quite a while since your last visit ({days_since} days) and would like to reach out personally to check in and offer you [special offer details] to welcome you back.",
+  "message_outreach_informal": "Hey {client}! We miss you around here. It's been quite a while ({days_since} days) since your last visit and we'd love to hear from you — we've got [special offer details] for whenever you're ready to come back.",
+
+  "message_section_title": "Message for the customer",
+  "message_tone_label": "Tone",
+  "message_tone_auto": "Automatic (based on frequency)",
+  "message_tone_formal": "Formal",
+  "message_tone_informal": "Informal",
+  "message_textarea_label": "Ready-to-copy message (you can edit it)"
 }
