@@ -52,5 +52,23 @@
   "export_col_explanation": "Explicación",
   "export_col_suggested_action": "Acción sugerida",
   "export_col_decision": "Decisión",
-  "export_col_final_action": "Acción final"
+  "export_col_final_action": "Acción final",
+
+  "message_greeting_formal": "Hola {client}, esperamos que se encuentre muy bien. Notamos que no le hemos visto por un tiempo y nos encantaría volver a atenderle pronto. ¡Quedamos atentos!",
+  "message_greeting_informal": "¡Hola {client}! ¿Cómo has estado? Hace rato no te vemos por aquí, ¡nos encantaría verte pronto!",
+  "message_reminder_formal": "Hola {client}, esperamos que se encuentre bien. Notamos que suele visitarnos cada {cycle} días y ya han pasado {days_since} — quisimos recordarle que estamos disponibles para agendar su próxima visita cuando guste.",
+  "message_reminder_informal": "¡Hola {client}! Vimos que ya pasaron {days_since} días desde tu última visita (tú sueles venir cada {cycle} días más o menos) — ¡te esperamos pronto!",
+  "message_discount_formal": "Hola {client}, esperamos que se encuentre bien. Notamos que ha pasado más tiempo de lo habitual desde su última visita ({days_since} días). Nos encantaría contar nuevamente con usted, por lo que le ofrecemos [detalle del descuento o beneficio] si agenda pronto.",
+  "message_discount_informal": "¡Hola {client}! Ya te extrañamos por aquí. Han pasado {days_since} días desde tu última visita, así que te queremos ofrecer [detalle del descuento o beneficio] si te animas a volver pronto.",
+  "message_discount_formal_with_value": "Hola {client}, esperamos que se encuentre bien. Notamos que ha pasado más tiempo de lo habitual desde su última visita ({days_since} días). Nos encantaría contar nuevamente con usted, por lo que le ofrecemos {discount_value} de descuento si agenda pronto.",
+  "message_discount_informal_with_value": "¡Hola {client}! Ya te extrañamos por aquí. Han pasado {days_since} días desde tu última visita, así que te queremos ofrecer {discount_value} de descuento si te animas a volver pronto.",
+  "message_outreach_formal": "Hola {client}, esperamos que se encuentre muy bien. Notamos que ha pasado bastante tiempo desde su última visita ({days_since} días) y nos gustaría contactarle personalmente para saber cómo se encuentra y ofrecerle [detalle de la oferta especial] para darle la bienvenida de vuelta.",
+  "message_outreach_informal": "¡Hola {client}! Te extrañamos por aquí. Ya pasó bastante tiempo ({days_since} días) desde tu última visita y nos encantaría saber de ti — te tenemos [detalle de la oferta especial] para cuando quieras volver.",
+
+  "message_section_title": "Mensaje para el cliente",
+  "message_tone_label": "Tono",
+  "message_tone_auto": "Automático (según frecuencia)",
+  "message_tone_formal": "Formal",
+  "message_tone_informal": "Informal",
+  "message_textarea_label": "Mensaje listo para copiar y pegar (puedes editarlo)"
 }
