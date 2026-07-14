@@ -28,6 +28,10 @@
   "action_outreach_label": "Personal call + offer",
   "action_outreach_description": "The delay is significant — they may already be going elsewhere. A personal outreach with a stronger offer is worth it.",
   "action_disclaimer": "This is only a suggestion. You decide whether to approve, edit, or discard each action — the app never contacts the customer on its own.",
+  "action_discount_with_value": "Offer a {value} discount to encourage them to come back.",
+  "strategy_label": "Strategy",
+  "discount_value_label": "Discount amount",
+  "discount_value_placeholder": "e.g. 10% or $15",
 
   "dashboard_title": "At-risk customers",
   "no_at_risk_clients": "No at-risk customers were detected in this file — nice work!",
@@ -56,6 +60,8 @@
   "message_reminder_informal": "Hey {client}! We noticed it's been {days_since} days since your last visit (you usually come every {cycle} days or so) — we'd love to see you soon!",
   "message_discount_formal": "Hi {client}, we hope you're doing well. We noticed it's been longer than usual since your last visit ({days_since} days). We'd love to have you back, so we're offering you [discount/perk details] if you book soon.",
   "message_discount_informal": "Hey {client}! We already miss you around here. It's been {days_since} days since your last visit, so we wanted to offer you [discount/perk details] if you're up for coming back soon.",
+  "message_discount_formal_with_value": "Hi {client}, we hope you're doing well. We noticed it's been longer than usual since your last visit ({days_since} days). We'd love to have you back, so we're offering you a {value} discount if you book soon.",
+  "message_discount_informal_with_value": "Hey {client}! We already miss you around here. It's been {days_since} days since your last visit, so we wanted to offer you a {value} discount if you're up for coming back soon.",
   "message_outreach_formal": "Hi {client}, we hope you're doing well. We noticed it's been quite a while since your last visit ({days_since} days) and would like to reach out personally to check in and offer you [special offer details] to welcome you back.",
   "message_outreach_informal": "Hey {client}! We miss you around here. It's been quite a while ({days_since} days) since your last visit and we'd love to hear from you — we've got [special offer details] for whenever you're ready to come back.",
 

@@ -4,6 +4,7 @@ from core.actions import (
     ACTION_OUTREACH,
     ACTION_REMINDER,
     build_action,
+    build_action_text,
     suggest_action_key,
 )
 from core.risk_engine import RISK_THRESHOLD_MULTIPLIER
@@ -47,3 +48,30 @@ def test_build_action_returns_localized_text():
 
 def test_build_action_none_key_returns_none():
     assert build_action(None) is None
+
+
+def test_build_action_text_discount_with_value_embeds_it():
+    text = build_action_text(ACTION_DISCOUNT, "15%", lang="es")
+    assert "15%" in text
+
+
+def test_build_action_text_discount_without_value_falls_back_to_generic():
+    generic = build_action(ACTION_DISCOUNT, lang="es")["description"]
+    text = build_action_text(ACTION_DISCOUNT, "", lang="es")
+    assert text == generic
+
+
+def test_build_action_text_non_discount_ignores_value():
+    text = build_action_text(ACTION_REMINDER, "15%", lang="es")
+    assert "15%" not in text
+    assert text == build_action(ACTION_REMINDER, lang="es")["description"]
+
+
+def test_build_action_text_none_type_returns_empty_string():
+    assert build_action_text(None, "15%", lang="es") == ""
+
+
+def test_build_action_text_localized_english():
+    text = build_action_text(ACTION_DISCOUNT, "$15", lang="en")
+    assert "$15" in text
+    assert "discount" in text.lower()

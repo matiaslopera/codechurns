@@ -28,6 +28,10 @@
   "action_outreach_label": "Llamada personal + oferta",
   "action_outreach_description": "El atraso es considerable — es probable que el cliente ya esté yendo a otro lugar. Vale la pena un contacto personal con una oferta más fuerte.",
   "action_disclaimer": "Esta es solo una sugerencia. Tú decides si aprobar, editar o descartar cada acción — la app nunca contacta al cliente por su cuenta.",
+  "action_discount_with_value": "Ofrecer {value} de descuento para motivar su regreso.",
+  "strategy_label": "Estrategia",
+  "discount_value_label": "Monto del descuento",
+  "discount_value_placeholder": "Ej: 10% o $15.000",
 
   "dashboard_title": "Clientes en riesgo",
   "no_at_risk_clients": "No se detectaron clientes en riesgo en este archivo — ¡buen trabajo!",
@@ -56,6 +60,8 @@
   "message_reminder_informal": "¡Hola {client}! Vimos que ya pasaron {days_since} días desde tu última visita (tú sueles venir cada {cycle} días más o menos) — ¡te esperamos pronto!",
   "message_discount_formal": "Hola {client}, esperamos que se encuentre bien. Notamos que ha pasado más tiempo de lo habitual desde su última visita ({days_since} días). Nos encantaría contar nuevamente con usted, por lo que le ofrecemos [detalle del descuento o beneficio] si agenda pronto.",
   "message_discount_informal": "¡Hola {client}! Ya te extrañamos por aquí. Han pasado {days_since} días desde tu última visita, así que te queremos ofrecer [detalle del descuento o beneficio] si te animas a volver pronto.",
+  "message_discount_formal_with_value": "Hola {client}, esperamos que se encuentre bien. Notamos que ha pasado más tiempo de lo habitual desde su última visita ({days_since} días). Nos encantaría contar nuevamente con usted, por lo que le ofrecemos {value} de descuento si agenda pronto.",
+  "message_discount_informal_with_value": "¡Hola {client}! Ya te extrañamos por aquí. Han pasado {days_since} días desde tu última visita, así que te queremos ofrecer {value} de descuento si te animas a volver pronto.",
   "message_outreach_formal": "Hola {client}, esperamos que se encuentre muy bien. Notamos que ha pasado bastante tiempo desde su última visita ({days_since} días) y nos gustaría contactarle personalmente para saber cómo se encuentra y ofrecerle [detalle de la oferta especial] para darle la bienvenida de vuelta.",
   "message_outreach_informal": "¡Hola {client}! Te extrañamos por aquí. Ya pasó bastante tiempo ({days_since} días) desde tu última visita y nos encantaría saber de ti — te tenemos [detalle de la oferta especial] para cuando quieras volver.",
 

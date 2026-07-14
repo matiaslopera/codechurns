@@ -1,3 +1,4 @@
+from core.actions import ACTION_DISCOUNT
 from core.i18n import t
 
 # --- Tunable parameters -----------------------------------------------------
@@ -14,8 +15,14 @@ TONE_INFORMAL = "informal"
 _MESSAGE_TEMPLATE_KEYS = {
     None: ("message_greeting_formal", "message_greeting_informal"),
     "reminder": ("message_reminder_formal", "message_reminder_informal"),
-    "personal_reminder_discount": ("message_discount_formal", "message_discount_informal"),
+    ACTION_DISCOUNT: ("message_discount_formal", "message_discount_informal"),
     "personal_outreach": ("message_outreach_formal", "message_outreach_informal"),
+}
+
+# Same tiers, but used once the owner has entered a concrete discount amount
+# (mirrors core.actions.build_action_text's with-value/generic split).
+_MESSAGE_TEMPLATE_KEYS_WITH_VALUE = {
+    ACTION_DISCOUNT: ("message_discount_formal_with_value", "message_discount_informal_with_value"),
 }
 
 
@@ -30,15 +37,16 @@ def suggest_tone(n_visits):
     return TONE_FORMAL
 
 
-def build_message(row, action_key, lang="es", tone=None):
+def build_message(row, action_key, lang="es", tone=None, discount_value=None):
     """Ready-to-copy customer-facing message for one client.
 
     tone: TONE_FORMAL, TONE_INFORMAL, or TONE_AUTO/None to auto-suggest from
     the client's visit frequency. action_key is one of core.actions' ACTION_*
     constants, or None for a plain check-in greeting with no discount/offer
     mentioned. Every fact used (cycle, days since last visit) comes straight
-    off the row — the discount/offer amount is left as a placeholder for the
-    owner to fill in, since the app has no basis to invent one.
+    off the row. For ACTION_DISCOUNT, discount_value (e.g. "15%") is embedded
+    verbatim when the owner has entered one; otherwise the offer is left as a
+    placeholder for the owner to fill in, since the app has no basis to invent one.
     """
     if action_key not in _MESSAGE_TEMPLATE_KEYS:
         raise ValueError(f"Unknown action_key: {action_key!r}")
@@ -46,7 +54,11 @@ def build_message(row, action_key, lang="es", tone=None):
     if tone is None or tone == TONE_AUTO:
         tone = suggest_tone(row.get("n_visits"))
 
-    formal_key, informal_key = _MESSAGE_TEMPLATE_KEYS[action_key]
+    discount_value = (discount_value or "").strip()
+    if action_key in _MESSAGE_TEMPLATE_KEYS_WITH_VALUE and discount_value:
+        formal_key, informal_key = _MESSAGE_TEMPLATE_KEYS_WITH_VALUE[action_key]
+    else:
+        formal_key, informal_key = _MESSAGE_TEMPLATE_KEYS[action_key]
     template_key = informal_key if tone == TONE_INFORMAL else formal_key
 
     cycle = row.get("normal_cycle_days")
@@ -56,4 +68,5 @@ def build_message(row, action_key, lang="es", tone=None):
         client=row["client"],
         cycle=_fmt_num(cycle) if cycle is not None else "",
         days_since=row.get("days_since_last_visit"),
+        value=discount_value,
     )

@@ -84,3 +84,29 @@ def test_localized_to_english():
 def test_unknown_action_key_raises():
     with pytest.raises(ValueError):
         build_message(_row(), "not_a_real_action", lang="es")
+
+
+def test_discount_message_embeds_owner_provided_value():
+    row = _row()
+    message = build_message(row, ACTION_DISCOUNT, lang="es", tone=TONE_FORMAL, discount_value="15%")
+    assert "15%" in message
+    assert "[" not in message
+
+
+def test_discount_message_falls_back_to_placeholder_without_value():
+    row = _row()
+    message = build_message(row, ACTION_DISCOUNT, lang="es", tone=TONE_FORMAL, discount_value="")
+    assert "[" in message and "]" in message
+
+
+def test_discount_message_ignores_blank_value():
+    row = _row()
+    message = build_message(row, ACTION_DISCOUNT, lang="es", tone=TONE_FORMAL, discount_value="   ")
+    assert "[" in message and "]" in message
+
+
+def test_outreach_message_ignores_discount_value():
+    row = _row()
+    message = build_message(row, ACTION_OUTREACH, lang="es", tone=TONE_FORMAL, discount_value="15%")
+    assert "15%" not in message
+    assert "[" in message and "]" in message
