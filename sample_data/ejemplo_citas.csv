@@ -1,0 +1,172 @@
+Cliente,Fecha,Servicio,Monto
+Ana Torres,2026-02-23,Corte de cabello,25.79
+Ana Torres,2026-03-04,Corte de cabello,26.25
+Ana Torres,2026-03-09,Corte de cabello,32.3
+Ana Torres,2026-03-16,Corte de cabello,31.04
+Ana Torres,2026-03-24,Corte de cabello,25.97
+Ana Torres,2026-03-31,Corte de cabello,26.02
+Ana Torres,2026-04-06,Corte de cabello,34.57
+Ana Torres,2026-04-13,Corte de cabello,27.78
+Ana Torres,2026-04-19,Corte de cabello,31.98
+Ana Torres,2026-04-24,Corte de cabello,32.59
+Ana Torres,2026-05-02,Corte de cabello,30.89
+Ana Torres,2026-05-11,Corte de cabello,29.2
+Ana Torres,2026-05-20,Corte de cabello,26.99
+Ana Torres,2026-05-29,Corte de cabello,31.02
+Ana Torres,2026-06-03,Corte de cabello,27.19
+Ana Torres,2026-06-11,Corte de cabello,25.32
+Ana Torres,2026-06-20,Corte de cabello,25.87
+Ana Torres,2026-06-26,Corte de cabello,32.36
+Ana Torres,2026-07-03,Corte de cabello,27.45
+Ana Torres,2026-07-08,Corte de cabello,25.25
+Beatriz Gomez,2025-11-26,Manicure,17.29
+Beatriz Gomez,2025-12-26,Manicure,23.43
+Beatriz Gomez,2026-01-27,Manicure,17.2
+Beatriz Gomez,2026-02-27,Manicure,17.7
+Beatriz Gomez,2026-03-28,Manicure,16.63
+Beatriz Gomez,2026-04-26,Manicure,20.34
+Beatriz Gomez,2026-05-24,Manicure,21.09
+Beatriz Gomez,2026-06-23,Manicure,22.02
+Carlos Ruiz,2026-01-02,Masaje,44.19
+Carlos Ruiz,2026-01-16,Masaje,43.25
+Carlos Ruiz,2026-01-31,Masaje,52.71
+Carlos Ruiz,2026-02-12,Masaje,47.6
+Carlos Ruiz,2026-02-24,Masaje,57.11
+Carlos Ruiz,2026-03-09,Masaje,55.46
+Carlos Ruiz,2026-03-21,Masaje,40.92
+Carlos Ruiz,2026-04-04,Masaje,51.55
+Carlos Ruiz,2026-04-20,Masaje,57.71
+Carlos Ruiz,2026-05-04,Masaje,56.59
+Diego Fernandez,2025-12-01,Corte de cabello,30.39
+Diego Fernandez,2025-12-21,Corte de cabello,27.47
+Diego Fernandez,2026-01-12,Corte de cabello,26.43
+Diego Fernandez,2026-02-03,Corte de cabello,28.96
+Diego Fernandez,2026-02-24,Corte de cabello,27.13
+Diego Fernandez,2026-03-19,Corte de cabello,33.76
+Diego Fernandez,2026-04-08,Corte de cabello,34.13
+Diego Fernandez,2026-04-30,Corte de cabello,27.68
+Diego Fernandez,2026-05-19,Corte de cabello,33.05
+Elena Martinez,2026-02-14,Peinado,26.09
+Elena Martinez,2026-02-21,Peinado,28.42
+Elena Martinez,2026-02-26,Peinado,28.71
+Elena Martinez,2026-03-04,Peinado,25.08
+Elena Martinez,2026-03-11,Peinado,29.72
+Elena Martinez,2026-03-16,Peinado,29.54
+Elena Martinez,2026-03-24,Peinado,21.58
+Elena Martinez,2026-03-31,Peinado,21.12
+Elena Martinez,2026-04-09,Peinado,27.51
+Elena Martinez,2026-04-14,Peinado,26.82
+Elena Martinez,2026-04-19,Peinado,26.8
+Elena Martinez,2026-04-28,Peinado,28.61
+Elena Martinez,2026-05-06,Peinado,25.29
+Elena Martinez,2026-05-14,Peinado,23.82
+Elena Martinez,2026-05-22,Peinado,25.96
+Elena Martinez,2026-05-28,Peinado,27.92
+Elena Martinez,2026-06-02,Peinado,21.53
+Elena Martinez,2026-06-07,Peinado,27.56
+Elena Martinez,2026-06-13,Peinado,25.1
+Elena Martinez,2026-06-19,Peinado,29.97
+Elena Martinez,2026-06-28,Peinado,23.99
+Elena Martinez,2026-07-07,Peinado,24.28
+Fernando Lopez,2025-11-10,Barba,19.39
+Fernando Lopez,2025-12-08,Barba,15.56
+Fernando Lopez,2026-01-09,Barba,16.62
+Fernando Lopez,2026-02-10,Barba,19.59
+Fernando Lopez,2026-03-11,Barba,17.7
+Fernando Lopez,2026-04-09,Barba,16.87
+Gabriela Sanchez,2026-01-23,Manicure y pedicure,44.93
+Gabriela Sanchez,2026-02-05,Manicure y pedicure,40.69
+Gabriela Sanchez,2026-02-21,Manicure y pedicure,41.33
+Gabriela Sanchez,2026-03-08,Manicure y pedicure,44.47
+Gabriela Sanchez,2026-03-24,Manicure y pedicure,43.09
+Gabriela Sanchez,2026-04-09,Manicure y pedicure,32.48
+Gabriela Sanchez,2026-04-22,Manicure y pedicure,39.9
+Gabriela Sanchez,2026-05-08,Manicure y pedicure,41.49
+Gabriela Sanchez,2026-05-23,Manicure y pedicure,42.24
+Gabriela Sanchez,2026-06-04,Manicure y pedicure,31.28
+Gabriela Sanchez,2026-06-17,Manicure y pedicure,43.17
+Gabriela Sanchez,2026-07-01,Manicure y pedicure,33.59
+Hugo Ramirez,2026-03-04,Corte de cabello,25.39
+Hugo Ramirez,2026-03-14,Corte de cabello,26.69
+Hugo Ramirez,2026-03-22,Corte de cabello,25.14
+Hugo Ramirez,2026-03-30,Corte de cabello,28.6
+Hugo Ramirez,2026-04-07,Corte de cabello,22.29
+Hugo Ramirez,2026-04-16,Corte de cabello,20.07
+Hugo Ramirez,2026-04-28,Corte de cabello,22.3
+Hugo Ramirez,2026-05-08,Corte de cabello,20.21
+Hugo Ramirez,2026-05-17,Corte de cabello,22.25
+Hugo Ramirez,2026-05-29,Corte de cabello,24.51
+Hugo Ramirez,2026-06-08,Corte de cabello,24.38
+Isabel Castro,2025-12-19,Tinte,70.2
+Isabel Castro,2026-01-19,Tinte,75.92
+Isabel Castro,2026-02-18,Tinte,62.71
+Isabel Castro,2026-03-18,Tinte,69.77
+Isabel Castro,2026-04-18,Tinte,55.71
+Isabel Castro,2026-05-17,Tinte,73.54
+Isabel Castro,2026-06-18,Tinte,67.29
+Javier Morales,2026-03-02,Corte de cabello,21.55
+Javier Morales,2026-03-11,Corte de cabello,26.62
+Javier Morales,2026-03-19,Corte de cabello,22.85
+Javier Morales,2026-03-27,Corte de cabello,22.65
+Javier Morales,2026-04-02,Corte de cabello,23.79
+Javier Morales,2026-04-10,Corte de cabello,29.02
+Javier Morales,2026-04-18,Corte de cabello,24.81
+Javier Morales,2026-04-24,Corte de cabello,21.66
+Javier Morales,2026-04-29,Corte de cabello,29.26
+Javier Morales,2026-05-08,Corte de cabello,28.36
+Javier Morales,2026-05-17,Corte de cabello,20.98
+Javier Morales,2026-05-22,Corte de cabello,24.43
+Javier Morales,2026-05-29,Corte de cabello,24.63
+Javier Morales,2026-06-04,Corte de cabello,24.22
+Javier Morales,2026-06-10,Corte de cabello,25.36
+Javier Morales,2026-06-15,Corte de cabello,22.49
+Javier Morales,2026-06-22,Corte de cabello,28.01
+Javier Morales,2026-06-27,Corte de cabello,20.61
+Karina Vega,2025-12-05,Tratamiento capilar,74.3
+Karina Vega,2026-01-19,Tratamiento capilar,61.71
+Karina Vega,2026-03-07,Tratamiento capilar,61.83
+Karina Vega,2026-04-19,Tratamiento capilar,77.38
+Karina Vega,2026-06-03,Tratamiento capilar,66.53
+Luis Herrera,2026-01-20,Masaje,51.3
+Luis Herrera,2026-02-01,Masaje,48.38
+Luis Herrera,2026-02-17,Masaje,40.79
+Luis Herrera,2026-03-05,Masaje,44.92
+Luis Herrera,2026-03-18,Masaje,48.08
+Luis Herrera,2026-03-30,Masaje,53.5
+Luis Herrera,2026-04-12,Masaje,41.37
+Luis Herrera,2026-04-28,Masaje,41.6
+Luis Herrera,2026-05-14,Masaje,43.15
+Monica Diaz,2025-11-27,Manicure,15.73
+Monica Diaz,2025-12-29,Manicure,24.98
+Monica Diaz,2026-01-26,Manicure,15.09
+Monica Diaz,2026-02-25,Manicure,19.57
+Monica Diaz,2026-03-28,Manicure,16.31
+Monica Diaz,2026-04-27,Manicure,17.39
+Monica Diaz,2026-05-26,Manicure,21.7
+Monica Diaz,2026-06-25,Manicure,24.35
+Nicolas Paredes,2026-02-03,Corte de cabello,25.75
+Nicolas Paredes,2026-02-11,Corte de cabello,30.61
+Nicolas Paredes,2026-02-19,Corte de cabello,30.52
+Nicolas Paredes,2026-02-26,Corte de cabello,26.62
+Nicolas Paredes,2026-03-04,Corte de cabello,31.37
+Nicolas Paredes,2026-03-09,Corte de cabello,25.04
+Nicolas Paredes,2026-03-17,Corte de cabello,33.29
+Nicolas Paredes,2026-03-22,Corte de cabello,25.92
+Nicolas Paredes,2026-03-29,Corte de cabello,34.05
+Nicolas Paredes,2026-04-05,Corte de cabello,30.05
+Nicolas Paredes,2026-04-12,Corte de cabello,27.04
+Nicolas Paredes,2026-04-21,Corte de cabello,27.11
+Nicolas Paredes,2026-04-27,Corte de cabello,27.72
+Nicolas Paredes,2026-05-02,Corte de cabello,32.42
+Nicolas Paredes,2026-05-08,Corte de cabello,27.64
+Nicolas Paredes,2026-05-13,Corte de cabello,34.39
+Nicolas Paredes,2026-05-22,Corte de cabello,27.99
+Nicolas Paredes,2026-05-31,Corte de cabello,25.08
+Nicolas Paredes,2026-06-07,Corte de cabello,31.12
+Nicolas Paredes,2026-06-15,Corte de cabello,33.34
+Nicolas Paredes,2026-06-22,Corte de cabello,27.85
+Nicolas Paredes,2026-06-27,Corte de cabello,33.79
+Nicolas Paredes,2026-07-03,Corte de cabello,34.33
+Nicolas Paredes,2026-07-09,Corte de cabello,30.06
+Olivia Reyes,2026-06-14,Facial,43.74
+Olivia Reyes,2026-07-03,Facial,43.18
