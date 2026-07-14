@@ -4,7 +4,7 @@ from core.explain import explain_client
 from core.export import build_workbook
 from core.i18n import t
 from core.risk_engine import STATUS_AT_RISK, STATUS_INSUFFICIENT_DATA, STATUS_ON_TRACK
-from ui.review_panel import action_text_key, decision_key, render_client_card
+from ui.review_panel import action_text_key, decision_key, render_client_row, render_table_header
 
 
 def _build_export_rows(at_risk_df, lang):
@@ -40,8 +40,9 @@ def render(risk_df, lang):
     if at_risk_df.empty:
         st.info(t("no_at_risk_clients", lang))
     else:
+        render_table_header(lang)
         for priority, (_, row) in enumerate(at_risk_df.iterrows(), start=1):
-            render_client_card(row, lang, priority)
+            render_client_row(row, lang, priority)
 
     export_rows = _build_export_rows(at_risk_df, lang)
     if export_rows:
