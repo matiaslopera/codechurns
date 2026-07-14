@@ -28,6 +28,10 @@
   "action_outreach_label": "Llamada personal + oferta",
   "action_outreach_description": "El atraso es considerable — es probable que el cliente ya esté yendo a otro lugar. Vale la pena un contacto personal con una oferta más fuerte.",
   "action_disclaimer": "Esta es solo una sugerencia. Tú decides si aprobar, editar o descartar cada acción — la app nunca contacta al cliente por su cuenta.",
+  "action_discount_with_value": "Ofrecer {value} de descuento para motivar su regreso.",
+  "strategy_label": "Estrategia",
+  "discount_value_label": "Monto del descuento",
+  "discount_value_placeholder": "Ej: 10% o $15.000",
 
   "dashboard_title": "Clientes en riesgo",
   "no_at_risk_clients": "No se detectaron clientes en riesgo en este archivo — ¡buen trabajo!",

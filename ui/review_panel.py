@@ -1,11 +1,12 @@
 import streamlit as st
 
+from core.actions import ACTION_DISCOUNT, ACTION_REMINDER, ACTION_TYPES, build_action, build_action_text
 from core.explain import explain_client
 from core.i18n import t
 
 DECISION_OPTIONS = ["pending", "approved", "edited", "discarded"]
 
-_COLUMN_WEIGHTS = [1.3, 3.2, 1.3, 2.4]
+_COLUMN_WEIGHTS = [1.1, 2.6, 1.8, 1.1, 2.2]
 
 
 def decision_key(client):
@@ -16,10 +17,25 @@ def action_text_key(client):
     return f"action_text_{client}"
 
 
+def action_type_key(client):
+    return f"action_type_{client}"
+
+
+def discount_value_key(client):
+    return f"discount_value_{client}"
+
+
+def _refresh_action_text(client, lang):
+    action_type = st.session_state.get(action_type_key(client))
+    discount_value = st.session_state.get(discount_value_key(client), "")
+    st.session_state[action_text_key(client)] = build_action_text(action_type, discount_value, lang)
+
+
 def render_table_header(lang):
-    col_name, col_text, col_decision, col_final = st.columns(_COLUMN_WEIGHTS)
+    col_name, col_text, col_strategy, col_decision, col_final = st.columns(_COLUMN_WEIGHTS)
     col_name.markdown(f"**{t('column_client', lang)}**")
     col_text.markdown(f"**{t('dashboard_title', lang)}**")
+    col_strategy.markdown(f"**{t('strategy_label', lang)}**")
     col_decision.markdown(f"**{t('decision_label', lang)}**")
     col_final.markdown(f"**{t('edit_textarea_label', lang)}**")
     st.divider()
@@ -28,20 +44,50 @@ def render_table_header(lang):
 def render_client_row(row, lang, priority):
     client = row["client"]
     result = explain_client(row, lang)
-    action = result["action"]
+    suggested_action = result["action"]
+    suggested_type = suggested_action["key"] if suggested_action else ACTION_REMINDER
+    if suggested_type not in ACTION_TYPES:
+        suggested_type = ACTION_REMINDER
 
+    st.session_state.setdefault(action_type_key(client), suggested_type)
+    st.session_state.setdefault(discount_value_key(client), "")
     st.session_state.setdefault(decision_key(client), "pending")
-    st.session_state.setdefault(action_text_key(client), action["description"] if action else "")
+    st.session_state.setdefault(
+        action_text_key(client),
+        build_action_text(
+            st.session_state[action_type_key(client)],
+            st.session_state[discount_value_key(client)],
+            lang,
+        ),
+    )
 
-    col_name, col_text, col_decision, col_final = st.columns(_COLUMN_WEIGHTS)
+    col_name, col_text, col_strategy, col_decision, col_final = st.columns(_COLUMN_WEIGHTS)
 
     with col_name:
         st.markdown(f"**#{priority} — {client}**")
 
     with col_text:
         st.write(result["explanation"])
-        if action:
-            st.caption(f"**{action['label']}**")
+
+    with col_strategy:
+        st.selectbox(
+            t("strategy_label", lang),
+            options=ACTION_TYPES,
+            format_func=lambda k: build_action(k, lang)["label"],
+            key=action_type_key(client),
+            label_visibility="collapsed",
+            on_change=_refresh_action_text,
+            kwargs={"client": client, "lang": lang},
+        )
+        if st.session_state[action_type_key(client)] == ACTION_DISCOUNT:
+            st.text_input(
+                t("discount_value_label", lang),
+                key=discount_value_key(client),
+                placeholder=t("discount_value_placeholder", lang),
+                label_visibility="collapsed",
+                on_change=_refresh_action_text,
+                kwargs={"client": client, "lang": lang},
+            )
 
     with col_decision:
         st.selectbox(

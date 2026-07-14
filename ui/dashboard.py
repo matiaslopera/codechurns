@@ -1,25 +1,28 @@
 import streamlit as st
 
+from core.actions import build_action
 from core.explain import explain_client
 from core.export import build_workbook
 from core.i18n import t
 from core.risk_engine import STATUS_AT_RISK, STATUS_INSUFFICIENT_DATA, STATUS_ON_TRACK
-from ui.review_panel import action_text_key, decision_key, render_client_row, render_table_header
+from ui.review_panel import action_text_key, action_type_key, decision_key, render_client_row, render_table_header
 
 
 def _build_export_rows(at_risk_df, lang):
     rows = []
     for _, row in at_risk_df.iterrows():
         client = row["client"]
-        result = explain_client(row, lang)
-        action = result["action"]
+        # Use the owner's current strategy choice (may have been overridden from
+        # the system's original suggestion), not the initial suggestion itself.
+        action_type = st.session_state.get(action_type_key(client))
+        action = build_action(action_type, lang) if action_type else None
         rows.append(
             {
                 "client": client,
                 "normal_cycle_days": row["normal_cycle_days"],
                 "days_since_last_visit": row["days_since_last_visit"],
                 "risk_ratio": row["risk_ratio"],
-                "explanation": result["explanation"],
+                "explanation": explain_client(row, lang)["explanation"],
                 "action_key": action["key"] if action else None,
                 "action_label": action["label"] if action else "",
                 "decision": st.session_state.get(decision_key(client), "pending"),

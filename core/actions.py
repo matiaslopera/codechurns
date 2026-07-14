@@ -15,6 +15,8 @@ ACTION_REMINDER = "reminder"
 ACTION_DISCOUNT = "personal_reminder_discount"
 ACTION_OUTREACH = "personal_outreach"
 
+ACTION_TYPES = [ACTION_REMINDER, ACTION_DISCOUNT, ACTION_OUTREACH]
+
 _ACTION_I18N_KEYS = {
     ACTION_REMINDER: ("action_reminder_label", "action_reminder_description"),
     ACTION_DISCOUNT: ("action_discount_label", "action_discount_description"),
@@ -48,3 +50,15 @@ def build_action(action_key, lang="es"):
         "label": t(label_key, lang),
         "description": t(description_key, lang),
     }
+
+
+def build_action_text(action_type, discount_value, lang="es"):
+    """Final action wording the owner will export, honoring whichever strategy
+    they've picked (system-suggested or manually overridden). For a discount
+    with an amount/percentage entered, that value is embedded in the text;
+    otherwise this falls back to the generic description for that action type."""
+    if action_type is None:
+        return ""
+    if action_type == ACTION_DISCOUNT and discount_value:
+        return t("action_discount_with_value", lang, value=discount_value.strip())
+    return build_action(action_type, lang)["description"]

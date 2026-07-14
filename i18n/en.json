@@ -28,6 +28,10 @@
   "action_outreach_label": "Personal call + offer",
   "action_outreach_description": "The delay is significant — they may already be going elsewhere. A personal outreach with a stronger offer is worth it.",
   "action_disclaimer": "This is only a suggestion. You decide whether to approve, edit, or discard each action — the app never contacts the customer on its own.",
+  "action_discount_with_value": "Offer a {value} discount to encourage them to come back.",
+  "strategy_label": "Strategy",
+  "discount_value_label": "Discount amount",
+  "discount_value_placeholder": "e.g. 10% or $15",
 
   "dashboard_title": "At-risk customers",
   "no_at_risk_clients": "No at-risk customers were detected in this file — nice work!",
