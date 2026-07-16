@@ -5,7 +5,15 @@ from core.explain import explain_client
 from core.export import build_workbook
 from core.i18n import t
 from core.risk_engine import STATUS_AT_RISK, STATUS_INSUFFICIENT_DATA, STATUS_ON_TRACK
-from ui.review_panel import action_text_key, action_type_key, decision_key, render_client_row, render_table_header
+from ui.review_panel import (
+    FEEDBACK_UNMARKED,
+    action_text_key,
+    action_type_key,
+    decision_key,
+    feedback_key,
+    render_client_row,
+    render_table_header,
+)
 
 
 def _build_export_rows(at_risk_df, lang):
@@ -26,6 +34,7 @@ def _build_export_rows(at_risk_df, lang):
                 "action_key": action["key"] if action else None,
                 "action_label": action["label"] if action else "",
                 "decision": st.session_state.get(decision_key(client), "pending"),
+                "feedback": st.session_state.get(feedback_key(client), FEEDBACK_UNMARKED),
                 "final_action_text": st.session_state.get(action_text_key(client), ""),
             }
         )

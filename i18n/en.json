@@ -55,6 +55,14 @@
   "export_col_suggested_action": "Suggested action",
   "export_col_decision": "Decision",
   "export_col_final_action": "Final action",
+  "export_col_feedback": "Feedback",
+
+  "feedback_label": "Feedback",
+  "feedback_useful": "Useful",
+  "feedback_not_useful": "Not useful",
+  "feedback_unmarked": "Not marked",
+  "feedback_useful_help": "Mark this suggestion as useful",
+  "feedback_not_useful_help": "Mark this suggestion as not useful",
 
   "message_greeting_formal": "Hi {client}, we hope you're doing well. We noticed we haven't seen you in a while and would love to have you back soon. Looking forward to it!",
   "message_greeting_informal": "Hey {client}! How have you been? We haven't seen you in a while, we'd love to see you again soon!",

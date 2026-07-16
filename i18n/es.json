@@ -55,6 +55,14 @@
   "export_col_suggested_action": "Acción sugerida",
   "export_col_decision": "Decisión",
   "export_col_final_action": "Acción final",
+  "export_col_feedback": "Feedback",
+
+  "feedback_label": "Feedback",
+  "feedback_useful": "Útil",
+  "feedback_not_useful": "No útil",
+  "feedback_unmarked": "Sin marcar",
+  "feedback_useful_help": "Marcar esta sugerencia como útil",
+  "feedback_not_useful_help": "Marcar esta sugerencia como no útil",
 
   "message_greeting_formal": "Hola {client}, esperamos que se encuentre muy bien. Notamos que no le hemos visto por un tiempo y nos encantaría volver a atenderle pronto. ¡Quedamos atentos!",
   "message_greeting_informal": "¡Hola {client}! ¿Cómo has estado? Hace rato no te vemos por aquí, ¡nos encantaría verte pronto!",
