@@ -12,7 +12,7 @@ FEEDBACK_UNMARKED = "unmarked"
 FEEDBACK_USEFUL = "useful"
 FEEDBACK_NOT_USEFUL = "not_useful"
 
-_COLUMN_WEIGHTS = [1.0, 2.3, 1.6, 1.0, 0.9, 2.0]
+_COLUMN_WEIGHTS = [1.0, 2.4, 1.7, 1.3, 0.7, 2.0]
 
 
 def decision_key(client):

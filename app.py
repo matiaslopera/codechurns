@@ -5,7 +5,7 @@ from core.ingest import IngestError, detect_columns, load_file, normalize
 from core.risk_engine import RISK_THRESHOLD_MULTIPLIER, compute_risk
 from ui.dashboard import render as render_dashboard
 
-st.set_page_config(page_title="Customer Retention Agent", page_icon="📋")
+st.set_page_config(page_title="Customer Retention Agent", page_icon="📋", layout="wide")
 
 if "lang" not in st.session_state:
     st.session_state.lang = "es"
