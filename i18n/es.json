@@ -16,6 +16,8 @@
   "error_empty_file": "El archivo está vacío.",
   "error_no_valid_dates": "No pudimos leer ninguna fecha válida en la columna detectada. Revisa el formato de las fechas en tu archivo.",
   "language_label": "Idioma",
+  "risk_threshold_label": "Umbral de riesgo (x ciclo normal)",
+  "risk_threshold_help": "Qué tan atrasado debe estar un cliente, en múltiplos de su ciclo normal, para marcarse en riesgo. Ej: 1.5 significa 50% más tarde de lo normal. Súbelo para ser menos estricto, bájalo para detectar riesgo antes.",
 
   "explain_at_risk": "Suele venir cada {cycle} días. Ya pasaron {days_since} días desde su última visita del {last_visit} — se esperaba que volviera antes del {expected} ({ratio}x su ciclo habitual).",
   "explain_on_track": "Suele venir cada {cycle} días y su última visita fue hace {days_since} días — dentro de lo normal.",

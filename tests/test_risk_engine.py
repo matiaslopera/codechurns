@@ -81,6 +81,27 @@ def test_threshold_is_configurable(monkeypatch):
     assert result.iloc[0]["status"] == STATUS_ON_TRACK
 
 
+def test_threshold_overridable_per_call_without_touching_module_default():
+    df = _df(
+        [
+            ("Carlos", "2026-01-01", 10),
+            ("Carlos", "2026-01-08", 10),
+            ("Carlos", "2026-01-15", 10),
+        ]
+    )
+    # 12 days since last visit, cycle = 7 -> ratio ~1.71
+    as_of = pd.Timestamp("2026-01-27")
+
+    default_result = compute_risk(df, as_of_date=as_of)
+    assert default_result.iloc[0]["status"] == STATUS_AT_RISK
+
+    stricter_result = compute_risk(df, as_of_date=as_of, risk_threshold=2.0)
+    assert stricter_result.iloc[0]["status"] == STATUS_ON_TRACK
+
+    # module default must be untouched by the explicit override above
+    assert risk_engine.RISK_THRESHOLD_MULTIPLIER == 1.5
+
+
 def test_duplicate_same_day_visits_treated_as_insufficient_data():
     df = _df(
         [
