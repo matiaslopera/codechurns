@@ -8,7 +8,11 @@ from core.messages import TONE_AUTO, TONE_FORMAL, TONE_INFORMAL, build_message, 
 DECISION_OPTIONS = ["pending", "approved", "edited", "discarded"]
 TONE_OPTIONS = [TONE_AUTO, TONE_FORMAL, TONE_INFORMAL]
 
-_COLUMN_WEIGHTS = [1.1, 2.6, 1.8, 1.1, 2.2]
+FEEDBACK_UNMARKED = "unmarked"
+FEEDBACK_USEFUL = "useful"
+FEEDBACK_NOT_USEFUL = "not_useful"
+
+_COLUMN_WEIGHTS = [1.0, 2.3, 1.6, 1.0, 0.9, 2.0]
 
 
 def decision_key(client):
@@ -33,6 +37,17 @@ def tone_key(client):
 
 def message_text_key(client):
     return f"message_text_{client}"
+
+
+def feedback_key(client):
+    return f"feedback_{client}"
+
+
+def _toggle_feedback(client, value):
+    """One-click thumbs up/down, independent of the approve/edit/discard decision.
+    Clicking the already-selected option clears it back to unmarked."""
+    current = st.session_state.get(feedback_key(client), FEEDBACK_UNMARKED)
+    st.session_state[feedback_key(client)] = FEEDBACK_UNMARKED if current == value else value
 
 
 def _resolved_tone(client, row):
@@ -65,11 +80,12 @@ def _refresh_message_only(client, row, lang):
 
 
 def render_table_header(lang):
-    col_name, col_text, col_strategy, col_decision, col_final = st.columns(_COLUMN_WEIGHTS)
+    col_name, col_text, col_strategy, col_decision, col_feedback, col_final = st.columns(_COLUMN_WEIGHTS)
     col_name.markdown(f"**{t('column_client', lang)}**")
     col_text.markdown(f"**{t('dashboard_title', lang)}**")
     col_strategy.markdown(f"**{t('strategy_label', lang)}**")
     col_decision.markdown(f"**{t('decision_label', lang)}**")
+    col_feedback.markdown(f"**{t('feedback_label', lang)}**")
     col_final.markdown(f"**{t('edit_textarea_label', lang)}**")
     st.divider()
 
@@ -86,6 +102,7 @@ def render_client_row(row, lang, priority):
     st.session_state.setdefault(discount_value_key(client), "")
     st.session_state.setdefault(decision_key(client), "pending")
     st.session_state.setdefault(tone_key(client), TONE_AUTO)
+    st.session_state.setdefault(feedback_key(client), FEEDBACK_UNMARKED)
 
     action_type, discount_value = _current_selection(client)
     st.session_state.setdefault(
@@ -96,7 +113,7 @@ def render_client_row(row, lang, priority):
         build_message(row, action_type, lang, tone=_resolved_tone(client, row), discount_value=discount_value),
     )
 
-    col_name, col_text, col_strategy, col_decision, col_final = st.columns(_COLUMN_WEIGHTS)
+    col_name, col_text, col_strategy, col_decision, col_feedback, col_final = st.columns(_COLUMN_WEIGHTS)
 
     with col_name:
         st.markdown(f"**#{priority} — {client}**")
@@ -131,6 +148,26 @@ def render_client_row(row, lang, priority):
             format_func=lambda k: t(f"decision_{k}", lang),
             key=decision_key(client),
             label_visibility="collapsed",
+        )
+
+    with col_feedback:
+        current_feedback = st.session_state[feedback_key(client)]
+        useful_col, not_useful_col = st.columns(2)
+        useful_col.button(
+            "👍",
+            key=f"useful_btn_{client}",
+            type="primary" if current_feedback == FEEDBACK_USEFUL else "secondary",
+            help=t("feedback_useful_help", lang),
+            on_click=_toggle_feedback,
+            kwargs={"client": client, "value": FEEDBACK_USEFUL},
+        )
+        not_useful_col.button(
+            "👎",
+            key=f"not_useful_btn_{client}",
+            type="primary" if current_feedback == FEEDBACK_NOT_USEFUL else "secondary",
+            help=t("feedback_not_useful_help", lang),
+            on_click=_toggle_feedback,
+            kwargs={"client": client, "value": FEEDBACK_NOT_USEFUL},
         )
 
     with col_final:

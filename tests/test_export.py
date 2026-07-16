@@ -15,6 +15,7 @@ def _sample_rows():
             "action_key": ACTION_OUTREACH,
             "action_label": "Llamada personal + oferta",
             "decision": "approved",
+            "feedback": "useful",
             "final_action_text": "Llamar y ofrecer 20% de descuento.",
         }
     ]
@@ -27,6 +28,8 @@ def test_build_workbook_has_header_and_data_row():
     assert ws.cell(row=1, column=1).value == "Cliente"
     assert ws.cell(row=2, column=1).value == "Carlos Ruiz"
     assert ws.cell(row=2, column=7).value == "Aprobada"
+    assert ws.cell(row=1, column=8).value == "Feedback"
+    assert ws.cell(row=2, column=8).value == "Útil"
 
 
 def test_build_workbook_applies_row_fill_by_action():
@@ -50,3 +53,17 @@ def test_build_workbook_localized_headers_english():
     ws = wb.active
     assert ws.cell(row=1, column=1).value == "Customer"
     assert ws.cell(row=2, column=7).value == "Approved"
+    assert ws.cell(row=2, column=8).value == "Useful"
+
+
+def test_build_workbook_unmarked_and_not_useful_feedback():
+    rows = _sample_rows()
+    rows[0]["feedback"] = "not_useful"
+    buffer = build_workbook(rows, lang="es")
+    ws = load_workbook(buffer).active
+    assert ws.cell(row=2, column=8).value == "No útil"
+
+    rows[0]["feedback"] = "unmarked"
+    buffer = build_workbook(rows, lang="es")
+    ws = load_workbook(buffer).active
+    assert ws.cell(row=2, column=8).value == "Sin marcar"

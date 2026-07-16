@@ -18,13 +18,14 @@ _ROW_FILLS = {
     None: PatternFill(start_color="E2E8F0", end_color="E2E8F0", fill_type="solid"),
 }
 
-_COLUMN_WIDTHS = [20, 16, 18, 12, 50, 32, 14, 40]
+_COLUMN_WIDTHS = [20, 16, 18, 12, 50, 32, 14, 14, 40]
 
 
 def build_workbook(export_rows, lang="es"):
     """export_rows: list of dicts with keys client, normal_cycle_days,
     days_since_last_visit, risk_ratio, explanation, action_key, action_label,
-    decision, final_action_text. Returns a BytesIO ready for a download button."""
+    decision, feedback, final_action_text. Returns a BytesIO ready for a
+    download button."""
     wb = Workbook()
     ws = wb.active
     ws.title = t("dashboard_title", lang)[:31]
@@ -37,6 +38,7 @@ def build_workbook(export_rows, lang="es"):
         t("export_col_explanation", lang),
         t("export_col_suggested_action", lang),
         t("export_col_decision", lang),
+        t("export_col_feedback", lang),
         t("export_col_final_action", lang),
     ]
     ws.append(headers)
@@ -57,6 +59,7 @@ def build_workbook(export_rows, lang="es"):
                 row["explanation"],
                 row["action_label"],
                 t(f"decision_{row['decision']}", lang),
+                t(f"feedback_{row['feedback']}", lang),
                 row["final_action_text"],
             ]
         )
