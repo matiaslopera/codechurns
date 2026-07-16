@@ -18,7 +18,7 @@ STATUS_ON_TRACK = "on_track"
 STATUS_INSUFFICIENT_DATA = "insufficient_data"
 
 
-def _client_stats(client_df, as_of_date):
+def _client_stats(client_df, as_of_date, risk_threshold):
     client_df = client_df.sort_values("date")
     n_visits = len(client_df)
     last_visit_date = client_df["date"].iloc[-1]
@@ -51,7 +51,7 @@ def _client_stats(client_df, as_of_date):
         }
 
     risk_ratio = days_since_last_visit / normal_cycle_days
-    status = STATUS_AT_RISK if risk_ratio >= RISK_THRESHOLD_MULTIPLIER else STATUS_ON_TRACK
+    status = STATUS_AT_RISK if risk_ratio >= risk_threshold else STATUS_ON_TRACK
 
     return {
         "n_visits": n_visits,
@@ -64,14 +64,20 @@ def _client_stats(client_df, as_of_date):
     }
 
 
-def compute_risk(df, as_of_date=None):
-    """df must be normalized (columns: client, date, amount). Returns one row per client."""
+def compute_risk(df, as_of_date=None, risk_threshold=None):
+    """df must be normalized (columns: client, date, amount). Returns one row per client.
+
+    risk_threshold overrides RISK_THRESHOLD_MULTIPLIER for this call (e.g. from a
+    UI control) without changing the module default other callers rely on.
+    """
     if as_of_date is None:
         as_of_date = df["date"].max()
+    if risk_threshold is None:
+        risk_threshold = RISK_THRESHOLD_MULTIPLIER
 
     rows = []
     for client, client_df in df.groupby("client"):
-        stats = _client_stats(client_df, as_of_date)
+        stats = _client_stats(client_df, as_of_date, risk_threshold)
         rows.append({"client": client, **stats})
 
     result = pd.DataFrame(rows)

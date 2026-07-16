@@ -16,6 +16,8 @@
   "error_empty_file": "The file is empty.",
   "error_no_valid_dates": "We couldn't read any valid dates in the detected column. Check the date format in your file.",
   "language_label": "Language",
+  "risk_threshold_label": "Risk threshold (x normal cycle)",
+  "risk_threshold_help": "How overdue a customer must be, in multiples of their normal cycle, to be flagged at risk. E.g. 1.5 means 50% later than usual. Raise it to be less strict, lower it to catch risk sooner.",
 
   "explain_at_risk": "Usually comes every {cycle} days. It's been {days_since} days since their last visit on {last_visit} — they were expected back by {expected} ({ratio}x their usual cycle).",
   "explain_on_track": "Usually comes every {cycle} days and their last visit was {days_since} days ago — within their normal pattern.",

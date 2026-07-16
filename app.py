@@ -2,7 +2,7 @@ import streamlit as st
 
 from core.i18n import t
 from core.ingest import IngestError, detect_columns, load_file, normalize
-from core.risk_engine import compute_risk
+from core.risk_engine import RISK_THRESHOLD_MULTIPLIER, compute_risk
 from ui.dashboard import render as render_dashboard
 
 st.set_page_config(page_title="Customer Retention Agent", page_icon="📋")
@@ -17,6 +17,16 @@ lang = st.sidebar.selectbox(
     format_func=lambda code: {"es": "Español", "en": "English"}[code],
 )
 st.session_state.lang = lang
+
+st.session_state.setdefault("risk_threshold", RISK_THRESHOLD_MULTIPLIER)
+st.sidebar.slider(
+    t("risk_threshold_label", lang),
+    min_value=1.1,
+    max_value=4.0,
+    step=0.1,
+    key="risk_threshold",
+    help=t("risk_threshold_help", lang),
+)
 
 st.title(t("app_title", lang))
 st.caption(t("app_subtitle", lang))
@@ -46,5 +56,5 @@ if uploaded_file is not None:
             st.caption(t("rows_loaded", lang, n=len(normalized_df), file=uploaded_file.name))
             st.dataframe(normalized_df, use_container_width=True)
 
-        risk_df = compute_risk(normalized_df)
+        risk_df = compute_risk(normalized_df, risk_threshold=st.session_state["risk_threshold"])
         render_dashboard(risk_df, lang)
